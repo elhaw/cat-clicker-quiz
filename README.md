@@ -1,7 +1,7 @@
 # cat-clicker-quiz
 
-Project Requirements for Cat Clicker Premium
-Visuals
+##Project Requirements for Cat Clicker Premium
+-Visuals
 The application should display
 
 a list of at least 5 cats, listed by name
