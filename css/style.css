@@ -1,0 +1,16 @@
+* {
+
+	box-sizing:border-box;
+	}
+body {background-color: #CCC;}
+
+.container {
+	display: flex;
+}
+
+#cat-container {
+	width:50;
+}
+img {
+	width: 50%;
+}
