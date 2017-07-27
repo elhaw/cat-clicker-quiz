@@ -36,17 +36,29 @@
 /*********************************************/
 	 var octopus = function (){
 
-	    catListview();
-		catView();
+	    catListView.init();
+	    catListView.render();
+	    catView.init();
+	    catView.render();
 		hideAllCats();
-     	$('#cat-container0').show();
 	 }
 /************************************************/
-var catListview = function (){
-	for (var i = 0; i < model.cats.length ; i ++)
+
+var catListView = {
+
+    init: function() {
+    	for (var i = 0; i < model.cats.length ; i ++)
 	{	
 
-		$('#catlist').append('<button id = "button'+i+'"> cat'+i+' </button>')
+		$('#catlist').append('<button id = "button'+i+'"> cat'+i+' </button>');
+
+	}
+        
+    },
+
+    render: function() {
+        for (var i = 0; i < model.cats.length ; i ++)
+	{	
 
 		$( '#button'+i+'' ).click( (function(icopy) {
 			return function() {
@@ -55,10 +67,12 @@ var catListview = function (){
 		    }
 	        })(i));
 	}
+    }
+};
+var catView = {
 
-}
-	var catView = function () {
-		for (var i = 0; i < model.cats.length ; i ++)
+    init: function() {
+    	for (var i = 0; i < model.cats.length ; i ++)
 		{	
 
 			var containerId = "cat-container"+ i;
@@ -70,8 +84,13 @@ var catListview = function (){
 			$('#'+containerId+'').append('<p>'+catName+'</p>');	
 			$('#'+containerId+'').append('<p id = "'+clickId+'">'+model.cats[i].click+' clicks</p>');
 			$('#'+containerId+'').append('<img id ="'+imageId+'"src ="'+imgPath+'">');
-
-
+		}
+	},
+    
+ 
+    render: function() {
+    	for (var i = 0; i < model.cats.length ; i ++)
+		{	
 			$( '#cat'+i+'' ).click( (function(icopy) {
 			  return function() {
 			    model.cats[icopy].click++;
@@ -80,16 +99,19 @@ var catListview = function (){
 			})(i));
 
 		}
-	}
-	
-	function hideAllCats() {
+        
+    }
+};
+
+		function hideAllCats() {
 		for (var i = 0 ; i < model.cats.length ; i++)
 		{
 			$('#cat-container'+i+'').hide();
 		}
 	}
-	//
+
 	octopus();
-	 
+	$('#cat-container0').show();
+
 
    
