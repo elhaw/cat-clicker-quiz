@@ -41,6 +41,7 @@
 	    catView.init();
 	    catView.render();
 		hideAllCats();
+		catView.defaultContainer();
 	 }
 /************************************************/
 
@@ -70,6 +71,13 @@ var catListView = {
     }
 };
 var catView = {
+	hideAllCats: function() {
+
+	},
+
+	defaultContainer: function () {
+		        $('#cat-container0').show();
+	},
 
     init: function() {
     	for (var i = 0; i < model.cats.length ; i ++)
@@ -85,6 +93,7 @@ var catView = {
 			$('#'+containerId+'').append('<p id = "'+clickId+'">'+model.cats[i].click+' clicks</p>');
 			$('#'+containerId+'').append('<img id ="'+imageId+'"src ="'+imgPath+'">');
 		}
+
 	},
     
  
@@ -99,7 +108,7 @@ var catView = {
 			})(i));
 
 		}
-        
+
     }
 };
 
@@ -111,7 +120,6 @@ var catView = {
 	}
 
 	octopus();
-	$('#cat-container0').show();
 
 
    
